@@ -37,7 +37,10 @@ namespace StellarV3Bep
             mainObject.hideFlags |= HideFlags.HideAndDontSave;
 
             foreach (var type in modules)
+            {
                 mainObject.AddComponent(Il2CppType.From(type));
+                Logging.Log($"Registered Module: {type.FullName}", LType.Success);
+            }
 
             VRCPlusPatch.Apply(_instance);
             _instance.PatchAll();
