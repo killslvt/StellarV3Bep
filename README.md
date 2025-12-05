@@ -30,8 +30,7 @@ This mod was created out of spite, so don’t expect frequent updates.
 ---
 
 ## How to Download & Use
-1. Download the latest ZIP file from the [Latest Release](https://github.com/killslvt/StellarV3Bep/releases) page.
-2. Extract the ZIP using a tool such as Ark, WinRAR, or 7-Zip depending on your operating system (Linux or Windows).
-3. Move the extracted files into your Mods folder.
+1. Download the latest dll file from the [Latest Release](https://github.com/killslvt/StellarV3Bep/releases) page.
+2. Move the dll file into your `BepInEx/plugins` folder.
 4. Launch VRChat and once in game, press Insert to open the menu.
 
