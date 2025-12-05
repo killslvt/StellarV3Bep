@@ -46,8 +46,8 @@
     <Reference Include="Localization.StringFormatting">
       <HintPath>Refs\interop\Localization.StringFormatting.dll</HintPath>
     </Reference>
-    <Reference Include="Photon-DotNet">
-      <HintPath>Refs\interop\Photon-DotNet.dll</HintPath>
+    <Reference Include="PhotonClient">
+      <HintPath>Refs\interop\PhotonClient.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
       <HintPath>Refs\interop\UnityEngine.dll</HintPath>

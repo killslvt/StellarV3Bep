@@ -140,6 +140,43 @@ namespace StellarV3Bep.Modules.Menus
            },
            () => PortalSpamUser, yOffset);
 
+            yOffset += 35;
+
+            new GUIToggleButton("Item Orbit", () =>
+            {
+                ItemOrbit.EnableOrbit(selectedPlayer);
+                PopupUtils.HudMessage("Item Orbit", "Toggled On", 3);
+            },
+           () =>
+           {
+               ItemOrbit.DisableOrbit();
+               PopupUtils.HudMessage("Item Orbit", "Toggled Off", 3);
+           },
+           () => ItemOrbit.itemOrbit, yOffset);
+
+            if (ItemOrbit.itemOrbit)
+            {
+                yOffset += 35;
+
+                new GUISlider("Orbit Speed", ItemOrbit.orbitSpeed, 1f, 20f, yOffset, (value) =>
+                {
+                    ItemOrbit.orbitSpeed = value;
+                });
+
+                yOffset += 35;
+
+                new GUISlider("Orbit Radius", ItemOrbit.orbitRadius, 1f, 10f, yOffset, (value) =>
+                {
+                    ItemOrbit.orbitRadius = value;
+                });
+
+                yOffset += 35;
+
+                new GUISlider("Orbit Height", ItemOrbit.orbitHeight, 1f, 10f, yOffset, (value) =>
+                {
+                    ItemOrbit.orbitHeight = value;
+                });
+            }
 
             yOffset += 35;
 

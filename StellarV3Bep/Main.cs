@@ -12,16 +12,25 @@ using UnityEngine;
 
 namespace StellarV3Bep
 {
-    [BepInPlugin("com.v.stellarv3", "StellarV3External", "1.0.2")]
+    [BepInPlugin("com.v.stellarv3", "StellarV3External", "1.0.6")]
     public class Main : BasePlugin
     {
-        public static new ManualLogSource _logSource;
+        public static new ManualLogSource Log;
         public static Harmony _instance { get; } = new Harmony("StellarV3External");
+
+        public static string folderPath = $"{Environment.CurrentDirectory}/StellarV3";
+
+        public static string logFolderPath = $"{Environment.CurrentDirectory}/StellarV3/WorldLogs";
 
         public override void Load()
         {
-            _logSource = new ManualLogSource("StellarV3");
-            BepInEx.Logging.Logger.Sources.Add(_logSource);
+            Log = new ManualLogSource("StellarV3");
+            BepInEx.Logging.Logger.Sources.Add(Log);
+
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
+            if (!Directory.Exists(logFolderPath))
+                Directory.CreateDirectory(logFolderPath);
 
             Logging.Log("Registering Modules", LType.Info);
 
@@ -37,10 +46,7 @@ namespace StellarV3Bep
             mainObject.hideFlags |= HideFlags.HideAndDontSave;
 
             foreach (var type in modules)
-            {
                 mainObject.AddComponent(Il2CppType.From(type));
-                Logging.Log($"Registered Module: {type.FullName}", LType.Success);
-            }
 
             VRCPlusPatch.Apply(_instance);
             _instance.PatchAll();

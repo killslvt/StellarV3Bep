@@ -15,5 +15,12 @@ namespace StellarV3Bep.SDK.Patching
 
             WorldHacksGUI.Initialize(scene.name);
         }
+
+        [HarmonyPatch("Internal_SceneUnloaded")]
+        [HarmonyPrefix]
+        private static void OnSceneUnLoaded(Scene scene)
+        {
+            Logging.Log($"Scene UnLoaded: {scene.name}, {scene.buildIndex}", LType.Info);
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using ExitGames.Client.Photon;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using VRC;
 using VRC.Core;
@@ -8,12 +7,11 @@ namespace StellarV3Bep.Modules
 {
     public class BaseModule : MonoBehaviour
     {
-        //Credit: Magma
         public virtual void Awake()
         {
             BaseModules.Modules.Add(this);
         }
-        public virtual bool OnPhotonEvent(EventData data) { return true; }
+        public virtual bool OnPhotonEvent(Photon.Client.EventData data) { return true; }
         public virtual void OnPlayerJoin(Player Player) { }
         public virtual void OnPlayerLeave(Player Player) { }
         public virtual void OnPlayerAvatarChange(Player Player, ApiAvatar Avatar) { }

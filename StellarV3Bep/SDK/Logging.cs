@@ -4,7 +4,7 @@
     {
         public static void Log(string msg, LType type = LType.Info)
         {
-            Main._logSource.LogMessage($"[{type}] {msg}");
+            Main.Log.LogMessage($"[{type}] {msg}");
         }
 
 

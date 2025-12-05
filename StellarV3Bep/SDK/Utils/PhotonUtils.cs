@@ -1,4 +1,4 @@
-﻿using ExitGames.Client.Photon;
+﻿using Photon.Client;
 using Photon.Pun;
 
 namespace StellarV3Bep.SDK.Utils
